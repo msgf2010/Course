@@ -1,0 +1,47 @@
+﻿@using Class61Homework.Data;
+@model CandidateModelView
+
+<div class="container">
+    <div class="text-center">
+        <h2>Pending Candidates</h2>
+    </div>
+    <div class="row">
+        <button id="toggle-notes" class="btn btn-primary">Toggle Notes</button>
+        <br />
+        <br />
+        <table id="pending-ppl-table" class="table table-bordered table-striped">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th class="notes">Notes</th>
+                <th>Action</th>
+            </tr>
+            @foreach (Person p in Model.People)
+            {
+                <tr>
+                    <td>@p.FirstName</td>
+                    <td>@p.LastName</td>
+                    <td>@p.PhoneNumber</td>
+                    <td>@p.Email</td>
+                    <td class="notes">@p.Notes</td>
+                    <td>
+                        <button data-confirmid="@p.Id"
+                                class="btn btn-success confirm">
+                            Confirm
+                        </button>
+                        <button data-declineid="@p.Id"
+                                class="btn btn-danger decline">
+                            Decline
+                        </button>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/js/PendingCandidates.js"></script>
+}
