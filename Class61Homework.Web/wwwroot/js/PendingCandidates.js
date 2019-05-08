@@ -36,7 +36,7 @@
                 <td>${people.lastName}</td>
                 <td>${people.phoneNumber}</td>
                 <td>${people.email}</td>
-                <td class="notes">${people.notes}</td>
+                <td class="notes">${people.notes || ''}</td>
                 <td>
                     <button id="confirm-btn"
                             data-confirmid="${people.id}"
